@@ -15,6 +15,22 @@
     height: 8px;
 }
 
+.txt-progress-pb {
+    font-size: 12px;
+}
+
+.container-progress-bar {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    top: 40px
+}
+
+.medio-pago-style {
+    width: 120px !important;
+    right: 0px;
+}
+
 .process-pd {
     width: 10px !important;
 }
@@ -27,6 +43,22 @@
     width: 96% !important;
 }
 
+.process-4 {
+    width: 100% !important;
+}
+
 .bold-pb {
     font-weight: bolder;
+}
+
+@media(max-width:388px) {
+    .medio-pago-style {
+        width: 33% !important;
+    }
+}
+
+@media(max-width:320px) {
+    .container-progress-bar {
+        top: -6px !important;
+    }
 }

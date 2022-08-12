@@ -1,5 +1,12 @@
-.container-header {
+.container-header-wey-pay {
     width: 100%;
-    position: absolute;
-    top: -6px;
+    height: 16px;
+}
+
+@media(max-width:320px) {
+    .container-header-wey-pay {
+        position: relative;
+        top: -4px !important;
+        height: 8px !important;
+    }
 }

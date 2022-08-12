@@ -20,6 +20,9 @@ export class PagesComponent implements OnInit {
   paymentMethod: boolean = false;
   paymentModel: boolean = false;
   personalData: boolean = false;
+  appLoad:  boolean = false;
+  bankResponse: boolean = false;
+  appBankResponse:boolean = false;
 
   id = '';
   serviceId = '';
@@ -53,6 +56,9 @@ export class PagesComponent implements OnInit {
     this.paymentMethod = false;
     this.paymentModel = false;
     this.personalData = false;
+    this.appLoad= false;
+    this.bankResponse = false;
+    this.appBankResponse = false;
 
     switch(view){
       case 'dashboard':
@@ -69,6 +75,17 @@ export class PagesComponent implements OnInit {
       break;
       case 'personalData':
         this.personalData = true;
+        // this.bankResponse = true;
+        // this.amountPayable = true;
+      break;
+      case 'bankResponse':
+        this.bankResponse = true;
+      break;
+      case 'appLoad':
+        this.appLoad = true;
+      break;
+      case 'appBankResponse':
+        this.appBankResponse = true;
       break;
     }
   }
@@ -81,6 +98,16 @@ export class PagesComponent implements OnInit {
   capturarMonto(monto:AmountPayable){
 
     console.log('Monto Debitar: ',monto);
+  }
+
+  onMouseMove(){
+    if(this.appLoad){
+      
+        this.appLoad = false;
+        this.appBankResponse = true;
+      
+    }
+    
   }
 
 }

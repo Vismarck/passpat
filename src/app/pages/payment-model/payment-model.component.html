@@ -1,3 +1,4 @@
+<div class="bloque-321px"></div>
 <div class="contenedor-pm center">
 
     <div class="contenedor-pm-second center">
@@ -6,12 +7,12 @@
             <img src="{{img}}" class="img-pm">
         </div>
         <br>
-        <div>
+        <div class="titolo-p-m">
             <div>
-                <div style="font-size: 36px;font-weight: bold;">
+                <div class="titulo-figma">
                     Suscribe un medio de pago
                 </div>
-                <div style="font-size: 16px;">
+                <div class="texto-figma texto-p-m">
                     Selecciona cualquier tipo de tarjeta de crédito.
                 </div>
             </div>
@@ -19,72 +20,119 @@
 
         <form [formGroup]="searchForm" class="form-inline" (ngSubmit)="onSubmit()">
 
-            <div class="container" style="padding: 0px; top: 32px; position: relative;">
+            <div class="container" class="container-second-form">
                 <div class="row">
-                    <div class="form-group col-5 center" style="width: 100%; max-width: 200px;">
+                    <div class="center form-tarjeta-pm col-3">
                         <div>
-                            <label for="img-pmo" style="font-size: 14px;font-weight: bold;">Añadir tarjeta</label>
-                            <div *ngIf="!tarjetaChangeval" style="position: absolute; width: 175px; height: 100px;" class="center">
-                                <span style="font-size: 14px; position: absolute; top: 45px; left: 16px;">{{tarjetaX}}</span>
-                                <span style="font-size: 10px; position: absolute; top: 85px; left: 16px;">{{fechaX}}</span>
+                            <div class="añadir-tarjeta-txt">Añadir tarjeta</div>
+                            <div *ngIf="!tarjetaChangeval" class="center contenedor-txt-tarjeta">
+                                <span class="contenedor-txt-tarjeta-tarjetaX">{{tarjetaX}}</span>
+                                <span class="contenedor-txt-tarjeta-fechaX">{{fechaX}}</span>
 
                             </div>
-                            <img src="{{imgCD}}" style="font-size: 10px; position: absolute; top: 105px; left: 135px; width:30px" alt="">
-                            <div *ngIf="tarjetaChangeval"><img style="width: 100%;" id="img-pmo" src="../../../assets/img/payment-model/tarjeta-cvv.svg"></div>
-                            <div *ngIf="!tarjetaChangeval"><img style="width: 100%;" id="img-pmo" src="../../../assets/img/payment-model/Frontside.svg"></div>
-                        </div>
-                    </div>
-                    <div class="form-group col">
-                        <div style="padding: 5px;">
-                            <label style="font-size: 14px;">Número tarjeta</label>
-
-                            <input (click)='changeTargeta(1)' [ngClass]="{'input-error-pd':searchForm.controls['tarjeta'].invalid &&
-                            (searchForm.controls['tarjeta'].dirty || searchForm.controls['tarjeta'].touched)}" style="min-width: 240px;" type="text" class="form-control input-pd" formControlName="tarjeta" (ngModelChange)="validateCD() " placeholder="XXXX XXXX XXXX XXXX"
-                                maxlength="19">
-                            <img src="{{imgCD}}" style="position: relative; width: 30px; top: -33px; left:10px" alt="">
-                            <br>
-                            <div *ngIf="searchForm.controls[ 'tarjeta'].valid && (searchForm.controls[ 'tarjeta'].dirty || searchForm.controls[ 'tarjeta'].touched) " class="row ">
-
-                                <div class="form-group col">
-                                    <label>Fecha de expiración</label>
-                                    <input (click)='changeTargeta(2)' [ngClass]="{'input-error-pd':searchForm.controls['fechaV'].invalid &&
-                                    (searchForm.controls['fechaV'].dirty || searchForm.controls['fechaV'].touched)}" type="text" class="form-control width-100 " maxlength="5 " placeholder="XX/XX " formControlName="fechaV" (ngModelChange)="validateFE() ">
-                                </div>
-                                <div class="form-group col">
-                                    <label>CVV</label>
-                                    <img src="../../../assets/img/Icon-interrogacion.svg" style="width: 13px;position :absolute; left: 95%" alt="">
-                                    <input (click)='changeTargeta(3)' [ngClass]="{'input-error-pd':searchForm.controls['cvv'].invalid &&
-                                    (searchForm.controls['cvv'].dirty || searchForm.controls['cvv'].touched)}" type="password" class="form-control width-100 " placeholder="***" maxlength="3 " formControlName="cvv">
-                                </div>
-
+                            <img src="{{imgCD}}" class="img-dinamica-tarjeta-credito" alt="">
+                            <div style="position: relative;top: -20px;">
+                                <div *ngIf="tarjetaChangeval"><img style="
+                                width: 200px;
+                                height: 128px;
+                                max-width: 200px;
+                                min-width: 180px;position: relative;
+                                top: 8px;" src="../../../assets/img/payment-model/tarjeta-cvv.svg"></div>
+                                <div *ngIf="!tarjetaChangeval"><img style="
+                                width: 200px;
+                                height: 128px;
+                                max-width: 200px;
+                                min-width: 180px;position: relative;
+                                top: 8px;    background: #E7EBF3;
+                                border-radius: 8px;" class="img-p-m-a" src="../../../assets/img/payment-model/Frontside.svg"></div>
                             </div>
                         </div>
                     </div>
+                    <div class="form-group col-9 data-tarjeta-f" style="width: 100%;max-width: 386px;min-width: 140px;padding: 0px;">
 
-                </div>
-                <div class="row" *ngIf="searchForm.controls['cvv'].valid && searchForm.controls['fechaV'].valid && searchForm.controls['tarjeta'].valid">
+                        <div class="numero-tarjeta-txt">Número tarjeta</div>
 
-                    <div class="form-group col" style="width: 100%; top: 30px; position: relative; background: #EBF6FF; height: 48px; padding: 10px;">
-                        <img src="../../../assets/img/Icon-interrogacion.svg" style="width: 13px;" alt="">&nbsp;
-                        <label> Haremos un cobro <strong>de $50, que serán devueltos</strong> luego de validar tu tarjeta.</label>
+                        <input (click)='changeTargeta(1)' [ngClass]="{'input-error-pd':searchForm.controls['tarjeta'].invalid &&
+                            (searchForm.controls['tarjeta'].dirty || searchForm.controls['tarjeta'].touched)}" style="margin:0px !important; top:4px; height: 48px;" type="text" class="form-control input-pd" formControlName="tarjeta" (ngModelChange)="validateCD() "
+                            placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+                        <img src="{{imgCD}}" style="position: relative; width: 30px; top: -33px; left:10px" alt="">
+                        <div style="top:-16px; position: relative;" class="small-text" *ngIf="searchForm.controls['tarjeta'].invalid &&
+                            (searchForm.controls['tarjeta'].dirty || searchForm.controls['tarjeta'].touched)"><img class="icon-error-pd" src="../../../assets/img/icon/icon-error.PNG">&nbsp;Ingresa un número de tarjeta válido</div>
+                        <br>
+                        <div style="position: relative;top: -5px;" *ngIf="searchForm.controls[ 'tarjeta'].valid && (searchForm.controls[ 'tarjeta'].dirty || searchForm.controls[ 'tarjeta'].touched) " class="row ">
+
+                            <div class="form-group col">
+                                <label style="height: 16px;">Fecha de expiración</label>
+                                <input style="width: 100%; max-width: 189px;height: 48px;" (click)='changeTargeta(2)' [ngClass]="{'input-error-pd':searchForm.controls['fechaV'].invalid &&
+                                    (searchForm.controls['fechaV'].dirty || searchForm.controls['fechaV'].touched)}" type="text" class="form-control width-100 cdv-jm" maxlength="5 " placeholder="XX/XX " formControlName="fechaV" (ngModelChange)="validateFE() ">
+                                <div class="small-text row" *ngIf="searchForm.controls['fechaV'].invalid &&
+                            (searchForm.controls['fechaV'].dirty || searchForm.controls['fechaV'].touched)">
+                                    <div class="icon-error-pd-padding-img-1 col-1"><img class="icon-error-pd" src="../../../assets/img/icon/icon-error.PNG"></div>
+                                    <div style="padding: 0px 0px 0px 10px;" class="col">Ingresa una fecha válida</div>
+                                </div>
+
+                            </div>
+                            <div class="form-group col">
+                                <label style="height: 16px;">CVV</label>
+                                <img src="../../../assets/img/Icon-interrogacion.svg" style="width: 13px;position :absolute; left: 93%; margin-top: 7px;" alt="">
+                                <input style="width: 100%; max-width: 189px;height: 48px;" #cvv (click)='changeTargeta(3)' [ngClass]="{'input-error-pd':searchForm.controls['cvv'].invalid &&
+                                    (searchForm.controls['cvv'].dirty || searchForm.controls['cvv'].touched)}" type="password" class="form-control width-100 cdv-jm" placeholder="***" maxlength="3 " formControlName="cvv">
+                                <span (click)="showPassword()" style="position: relative; top: -30px; left: 80%;cursor: pointer;"><i class="bi bi-eye"></i></span>
+                                <div class="small-text row" *ngIf="searchForm.controls['cvv'].invalid &&
+                            (searchForm.controls['cvv'].dirty || searchForm.controls['cvv'].touched)" style="top: -24px;position: relative;">
+                                    <div class="col-1 icon-error-pd-padding-img-2"><img class="icon-error-pd" src="../../../assets/img/icon/icon-error.PNG"></div>
+                                    <div style="padding: 0px 0px 0px 10px;" class="col"> Ingresa código de seguridad válido</div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
-                </div>
-                <br><br>
-                <div class="row">
+                    <div class="row pading-style-0p-320">
 
-                    <div class="form-group col" style="width: 100%; top: 30px; position: relative;">
-                        <input type="checkbox">&nbsp;
-                        <label> Acepto los  <a href="# ">términos y condiciones.</a></label>
+                        <div class="form-group col container-terminos-condiciones">
+
+                            <div class="row" *ngIf="searchForm.controls['cvv'].valid && searchForm.controls['fechaV'].valid && searchForm.controls['tarjeta'].valid">
+
+                                <div class="form-group col mensaje-cobro-validacion-tarjeta">
+                                    <div style="width:100%; padding: 0px;">
+                                        <div class="row center message-pay-50-container">
+
+                                            <div class="col message-pay-50">
+                                                <img src="../../../assets/img/Icon-interrogacion.svg" style="padding: 10px 10px 10px 14px;">
+                                                <div> Haremos un <strong> cobro de $50, que serán devueltos</strong> luego de validar tu tarjeta.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <input type="checkbox" formControlName="termsconditions">&nbsp;
+                                <label class="termsconditiosstyleletter"> Acepto los  <a href="# ">términos y condiciones.</a></label>
+                            </div>
+                            <div class="row u847ur-ur74y-9r74">
+
+                                <div class="form-group col-sm" style="padding: 0px;">
+                                    <button (click)="inscribirTarjeta() " [disabled]="!searchForm.valid" [ngClass]="{'btn-disable-primary':!searchForm.valid, 'btn-pmo':searchForm.valid}" class="btn-pmo-position s320px-show" type="submit ">Confirmar y suscribir</button>
+                                    <button class="btn-back-pm s320px-hiden" style="padding: 0px;" type="submit " (click)="back()">< Volver</button>
+                                </div>
+                                <div class="form-group col-sm next-pm-b" style="padding: 0px;">
+                                    <button class="btn-back-pm s320px-show" style="text-align: right;" type="submit " (click)="back()">< Volver</button>
+                                    <button (click)="inscribirTarjeta() " [disabled]="!searchForm.valid" [ngClass]="{'btn-disable-primary':!searchForm.valid, 'btn-pmo':searchForm.valid}" class="btn-pmo-position s320px-hiden" type="submit ">Confirmar y suscribir</button>
+                                </div>
+                            </div>
+
+                            <div class="row center">
+
+                                <div class="col terms-conditions-content">
+                                    <img src="../../../assets/img/shield.svg" class="img-terms">
+                                    <div> Transacción respaldada por Transbank. Revisa las <a href="# ">condiciones del servicio.</a></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row " style="width: 100%; top: 70px; position: relative;">
-
-                <div class="form-group col">
-                    <button (click)="inscribirTarjeta() " style="color: #6B196B; padding: 15px;margin-left: 20px;" class="btn-back " type="submit " (click)="back()">< Volver</button>
-                </div>
-                <div class="form-group col">
-                    <button (click)="inscribirTarjeta() " class="btn-pmo " type="submit ">Confirmar y suscribir</button>
                 </div>
             </div>
 
@@ -93,9 +141,3 @@
     </div>
 
 </div>
-<div class="row message-onditions-service">
-    <div class="form-group col center " style="position: relative; width: 80%; text-align: center; top: 100px;">
-        <label> <img src="../../../assets/img/shield.svg " style="width: 26px; "> Transacción respaldada por Transbank. Revisa las <a href="# ">condiciones del servicio.</a></label>
-    </div>
-</div>
-<br>

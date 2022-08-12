@@ -32,20 +32,22 @@
                             "src/styles.css"
                         ],
                         "scripts": [
-                            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+                            "node_modules/chart.js/dist/chart.js",
+                            "node_modules/chart.js/dist/chart.js"
                         ]
                     },
                     "configurations": {
                         "production": {
                             "budgets": [{
                                     "type": "initial",
-                                    "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
+                                    "maximumWarning": "10mb",
+                                    "maximumError": "10mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
-                                    "maximumWarning": "2kb",
-                                    "maximumError": "4kb"
+                                    "maximumWarning": "10kb",
+                                    "maximumError": "10kb"
                                 }
                             ],
                             "fileReplacements": [{

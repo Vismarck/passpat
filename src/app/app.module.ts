@@ -20,6 +20,12 @@ import { PaymentModelComponent } from './pages/payment-model/payment-model.compo
 import { PaymentMethodComponent } from './pages/payment-method/payment-method.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { BankResponseComponent } from './pages/bank-response/bank-response.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadComponent } from './pages/load/load.component';
+import { ErrorComponent } from './error/error/error.component';
+import { BasicAuthService } from './interceptor/basic-auth.service';
+
 
 @NgModule({
   declarations: [
@@ -32,19 +38,24 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
     PaymentModelComponent,
     PaymentMethodComponent,
     HeaderComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    LoadComponent,
+    ErrorComponent,
+    BankResponseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: Interceptor,
+      useClass: BasicAuthService,
       multi: true
     }
   ],
